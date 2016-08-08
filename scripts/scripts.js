@@ -1,10 +1,12 @@
-$('#domainsForm').submit(function (e) {
+document.getElementById('domainsForm').onsubmit = function (e) {
 
-	var $fullDomain = $('#fullDomain'),
-		resultAreValidAllRules = domainsValidation.areValidAllRules($fullDomain.val());
+	e.preventDefault();
+
+	var fullDomain = document.getElementById('fullDomain'),
+		resultAreValidAllRules = domainsValidation.areValidAllRules(fullDomain.value);
 
 	console.log(resultAreValidAllRules);
 
 	return resultAreValidAllRules.status;
 
-});
+};
